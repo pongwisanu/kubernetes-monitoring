@@ -6,7 +6,7 @@ kubectl create -f grafana-datasource-config.yaml
 2. Create PV for grafana in this case use nfs 
 ```
 vi pv.yaml
-# change nfs path and nfs server
+## change nfs path and nfs server
 
 kubectl create -f pv.yaml
 ```
@@ -18,3 +18,4 @@ kubectl create -f deployment.yaml
 ```
 kubectl create -f service.yaml
 ```
+access at port 32000
