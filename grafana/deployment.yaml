@@ -32,10 +32,14 @@ spec:
             name: grafana-storage
             subPath: grafana-data
           - mountPath: /etc/grafana/provisioning/datasources
-            name: grafana-storage
-            subPath: grafana-datasources
+            name: grafana-datasources
+            readOnly: false
       volumes:
         - name: grafana-storage
           persistentVolumeClaim:
             claimName: grafana-pvc
+        - name: grafana-datasources
+          configMap:
+            defaultMode: 420
+            name: grafana-datasources
 

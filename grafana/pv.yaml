@@ -10,8 +10,8 @@ spec:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   nfs:
-    path: <NFS-PATH>
-    server: <NFS IP>
+    path: <path>
+    server: <server>
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
