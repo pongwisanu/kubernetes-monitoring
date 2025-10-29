@@ -32,14 +32,14 @@ data:
     scrape_configs:
       - job_name: 'node-exporter'
         kubernetes_sd_configs:
-          - role: endpoints
+          - role: endpointslice
         relabel_configs:
         - source_labels: [__meta_kubernetes_endpoints_name]
           regex: 'node-exporter'
           action: keep
       - job_name: 'kubernetes-apiservers'
         kubernetes_sd_configs:
-        - role: endpoints
+        - role: endpointslice
         scheme: https
         tls_config:
           ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
@@ -109,7 +109,7 @@ data:
           replacement: /api/v1/nodes/${1}/proxy/metrics/cadvisor
       - job_name: 'kubernetes-service-endpoints'
         kubernetes_sd_configs:
-        - role: endpoints
+        - role: endpointslice
         relabel_configs:
         - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_scrape]
           action: keep
